@@ -1,0 +1,127 @@
+body {
+    background-color: black;
+    color: white;
+    user-select: none;
+}
+
+body.coin-flipped #main {
+    border: none;
+}
+#coin-parent {
+    width: 10em;
+    height: 10em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.coin-container {
+    position: absolute;
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    margin: 20px;
+    cursor: pointer;
+}
+body.coin-flipped .coin-container {
+    cursor: default;
+}
+body.coin-flip-ended .coin-container {
+    cursor: pointer !important;
+}
+body.coin-flipped .coin-container {
+    scale: 1.5;
+}
+@keyframes coin-flip {
+    0% {
+        rotate: y 0deg;
+    }
+    100% {
+        rotate: y 180deg;
+    }
+}
+.coin-side {
+    width: max-content;
+    height: max-content;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    
+    font-size: 3em;
+    font-weight: bold;
+}
+#coin-head {
+    color: green;
+}
+#coin-head-container {
+    border: green 2px solid;
+}
+#coin-tail {
+    color: red;
+}
+#coin-tail-container {
+    border: red 2px solid;
+}
+body.coin-flip-ended #coin-head-container {
+    border: green 2px solid;
+    box-shadow: green 0 0 20px;
+}
+body.coin-flip-ended #coin-tail-container {
+    border: red 2px solid;
+    box-shadow: red 0 0 20px;
+}
+@keyframes side1 {
+    0%, 50% {
+        rotate: y 90deg;
+    }
+    0% {
+        transform: translateY(20px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        rotate: y 180deg;
+        transform: translateY(0);
+    }
+}
+@keyframes side2 {
+    0% {
+        rotate: y 0deg;
+    }
+    0% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        rotate: y 90deg;
+        transform: translateY(0);
+    }
+}
+.coin-side-1 {
+    animation: side1 1000ms forwards;
+}
+.coin-side-2 {
+    animation: side2 500ms forwards;
+}
+.init-coin-side {
+    animation: none !important;
+}
+#coin-tail-container {
+    rotate: y 90deg;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: x-small;
+}
+footer  a {
+    color: olive;
+}
